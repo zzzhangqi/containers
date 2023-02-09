@@ -165,9 +165,16 @@ zookeeper_initialize() {
 
     if is_dir_empty "$ZOO_DATA_DIR"; then
         info "Deploying ZooKeeper from scratch..."
-        echo "$ZOO_SERVER_ID" >"${ZOO_DATA_DIR}/myid"
-
-        if is_boolean_yes "$ZOO_ENABLE_AUTH" && [[ $ZOO_SERVER_ID -eq 1 ]] && [[ -n $ZOO_SERVER_USERS ]]; then
+        
+        if [ "${HOSTNAME##*-}" = 0 ]; then
+            echo "1" >"${ZOO_DATA_DIR}/myid"
+        elif [ "${HOSTNAME##*-}" = 1 ]; then
+            echo "2" >"${ZOO_DATA_DIR}/myid"
+        else
+            echo "3" >"${ZOO_DATA_DIR}/myid"
+        fi
+        
+        if is_boolean_yes "$ZOO_ENABLE_AUTH" && [[ -n $ZOO_SERVER_USERS ]]; then
             zookeeper_configure_acl
         fi
     else
