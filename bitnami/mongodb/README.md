@@ -49,6 +49,7 @@ The recommended way to get the Bitnami MongoDB&reg; Docker Image is to pull the 
 ```console
 docker pull bitnami/mongodb:latest
 ```
+> custom image: qlucky/mongodb:7.0.5-debian-11-r5
 
 To use a specific version, you can pull a versioned tag. You can view the [list of available versions](https://hub.docker.com/r/bitnami/mongodb/tags/) in the Docker Hub Registry.
 
