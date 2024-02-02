@@ -53,5 +53,5 @@ ENV APP_VERSION="7.2.4" \
 EXPOSE 6379
 
 USER 1001
-ENTRYPOINT [ "/opt/bitnami/scripts/redis-cluster/entrypoint.sh" ]
-CMD [ "/opt/bitnami/scripts/redis-cluster/run.sh" ]
+# ENTRYPOINT [ "/opt/bitnami/scripts/redis-cluster/entrypoint.sh" ]
+CMD [ "/opt/bitnami/scripts/redis-cluster/rbd.sh" ]
